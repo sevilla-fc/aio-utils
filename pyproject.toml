@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "aio-utils"
+version = "0.1.0"
+description = "Helpers and other utils to make life easier when working with AsyncIO"
+authors = ["Juan Manuel Cotelo <jm.cotelo@sevillafc.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+tenacity = "^7.0.0"
+cachetools = "^4.2.2"
+attr = "^0.3.1"
+urllib3 = "^1.26.4"
+aiohttp = {extras = ["speedups"], version = "^3.7.4"}
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
