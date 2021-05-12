@@ -4,8 +4,8 @@ name: CI
 
 # Controls when the action will run.
 on:
-  release: 
-    types: [ published ]
+  release:
+    types: [published]
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -24,8 +24,6 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-        with:
-          token: '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'
 
       - uses: actions/setup-python@v2
         with:
@@ -41,4 +39,4 @@ jobs:
       - name: Deploy to Azure
         run: |
           pip install twine keyring artifacts-keyring
-          twine upload --repository-url ${{ secrets.AZURE_ARTIFACTS_FEED }} -u 'az' -p ${{ secrets.AZURE_ARTIFACTS_FEED_TOKEN }} dist/* --skip-existing
+          twine upload --repository-url ${{ secrets.AZURE_ARTIFACTS_FEED_URL }}/pypi/upload -u 'az' -p ${{ secrets.AZURE_ARTIFACTS_FEED_TOKEN }} dist/* --skip-existing
